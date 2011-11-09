@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
                 ->useAttributeAsKey('name')
                     ->prototype('array')
                         ->children()
-                            ->scalarNode('namespace')->isRequired()->cannotBeEmpty()->end()
+                            ->scalarNode('namespace')->defaultNull()->end()
                             ->scalarNode('type')->isRequired()->cannotBeEmpty()->end()
                             ->scalarNode('id')->defaultNull()->end()
                         ->end()

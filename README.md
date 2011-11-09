@@ -44,6 +44,10 @@ Simply configure any number of cache services:
                 namespace: ding
                 # cache type
                 type: apc
+            # name of the service (aka liip_doctrine_cache.ns.foo) and namespace
+            lala:
+                # cache type
+                type: apc
             # name of the service (aka liip_doctrine_cache.ns.bar)
             bar:
                 # cache namespace
