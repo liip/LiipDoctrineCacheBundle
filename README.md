@@ -40,21 +40,21 @@ Simply configure any number of cache services:
         namespaces:
             # name of the service (aka liip_doctrine_cache.ns.foo)
             foo:
-                # cache namespace
+                # cache namespace is "ding"
                 namespace: ding
-                # cache type
+                # cache type is "apc"
                 type: apc
             # name of the service (aka liip_doctrine_cache.ns.foo) and namespace
             lala:
-                # cache type
+                # cache type is "apc"
                 type: apc
             # name of the service (aka liip_doctrine_cache.ns.bar)
             bar:
-                # cache namespace
+                # cache namespace is "ding"
                 namespace: ding
-                # cache type
+                # cache type is "memcached"
                 type: memcached
-                # name of a service of class Memcached
+                # name of a service of class Memcached that is fully configured
                 id: my_memcached_service
 
 Custom cache types
