@@ -56,3 +56,9 @@ Simply configure any number of cache services:
                 type: memcached
                 # name of a service of class Memcached
                 id: my_memcached_service
+
+Custom cache types
+==================
+
+Simply define a new type my defining a service named `liip_doctrine_cache.[type name]`.
+Note the service needs to implement ``Doctrine\Common\Cache\Cache`` interface.
