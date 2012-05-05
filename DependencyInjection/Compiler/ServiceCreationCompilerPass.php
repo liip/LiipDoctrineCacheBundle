@@ -5,7 +5,8 @@ namespace Liip\DoctrineCacheBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface,
     Symfony\Component\DependencyInjection\ContainerBuilder,
     Symfony\Component\DependencyInjection\Reference,
-    Symfony\Component\DependencyInjection\DefinitionDecorator;
+    Symfony\Component\DependencyInjection\DefinitionDecorator,
+    Symfony\Component\DependencyInjection\Definition;
 
 class ServiceCreationCompilerPass implements CompilerPassInterface
 {
@@ -27,15 +28,37 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
             switch ($config['type']) {
                 case 'memcache':
                     if (empty($config['id'])) {
-                        throw new \InvalidArgumentException('Service id for memcache missing');
+                        $memcacheHost = !empty($config['host']) ? $config['host'] : '%liip_doctrine_cache.memcache_host%';
+                        $memcachePort = !empty($config['port']) ? $config['port'] : '%liip_doctrine_cache.memcache_port%';
+                        $memcache = new Definition('Memcache');
+                        $memcache->addMethodCall('addServer', array(
+                            $memcacheHost, $memcachePort
+                        ));
+                        $memcache->setPublic(false);
+                        $memcacheId = sprintf('liip_doctrine_cache.%s_memcache_instance', $namespace);
+                        $container->setDefinition($memcacheId, $memcache);
+                    } else {
+                        $memcacheId = $config['id'];
                     }
-                    $service->addMethodCall('setMemcache', array(new Reference($config['id'])));
+
+                    $service->addMethodCall('setMemcache', array(new Reference($memcacheId)));
                     break;
                 case 'memcached':
                     if (empty($config['id'])) {
-                        throw new \InvalidArgumentException('Service id for memcached missing');
+                        $memcachedHost = !empty($config['host']) ? $config['host'] : '%liip_doctrine_cache.memcached_host%';
+                        $memcachedPort = !empty($config['port']) ? $config['port'] : '%liip_doctrine_cache.memcached_port%';
+                        $memcached = new Definition('Memcached');
+                        $memcached->addMethodCall('addServer', array(
+                            $memcachedHost, $memcachedPort
+                        ));
+                        $memcached->setPublic(false);
+                        $memcachedId = sprintf('liip_doctrine_cache.%s_memcached_instance', $namespace);
+                        $container->setDefinition($memcachedId, $memcached);
+                    } else {
+                        $memcachedId = $config['id'];
                     }
-                    $service->addMethodCall('setMemcached', array(new Reference($config['id'])));
+
+                    $service->addMethodCall('setMemcached', array(new Reference($memcachedId)));
                     break;
             }
         }
