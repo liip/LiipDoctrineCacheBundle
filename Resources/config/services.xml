@@ -9,7 +9,11 @@
         <parameter key="liip_doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
         <parameter key="liip_doctrine_cache.array.class">Doctrine\Common\Cache\ArrayCache</parameter>
         <parameter key="liip_doctrine_cache.memcache.class">Doctrine\Common\Cache\MemcacheCache</parameter>
+        <parameter key="liip_doctrine_cache.memcache_host">localhost</parameter>
+        <parameter key="liip_doctrine_cache.memcache_port">11211</parameter>
         <parameter key="liip_doctrine_cache.memcached.class">Doctrine\Common\Cache\MemcachedCache</parameter>
+        <parameter key="liip_doctrine_cache.memcached_host">localhost</parameter>
+        <parameter key="liip_doctrine_cache.memcached_port">11211</parameter>
         <parameter key="liip_doctrine_cache.win_cache.class">Doctrine\Common\Cache\WinCacheCache</parameter>
         <parameter key="liip_doctrine_cache.xcache.class">Doctrine\Common\Cache\XcacheCache</parameter>
         <parameter key="liip_doctrine_cache.zend_data.class">Doctrine\Common\Cache\ZendDataCache</parameter>
