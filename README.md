@@ -66,18 +66,18 @@ Simply configure any number of cache services:
         namespaces:
             # name of the service (aka liip_doctrine_cache.ns.foo)
             foo:
-                # cache namespace is "ding"
+                # cache namespace is "ding", this is optional
                 namespace: ding
                 # cache type is "apc"
                 type: apc
-            # name of the service (aka liip_doctrine_cache.ns.foo) and namespace
+            # name of the service (aka liip_doctrine_cache.ns.lala) and namespace
             lala:
                 # cache type is "apc"
                 type: apc
             # name of the service (aka liip_doctrine_cache.ns.bar)
             bar:
-                # cache namespace is "ding"
-                namespace: ding
+                # cache namespace is "dong"
+                namespace: dong
                 # cache type is "memcached"
                 type: memcached
                 # name of a service of class Memcached that is fully configured (optional)
@@ -87,6 +87,10 @@ Simply configure any number of cache services:
                 # host to use for memcache(d) (default is localhost)
                 host: localhost
 
+Usage
+=====
+
+Simply use `liip_doctrine_cache.ns.[your_namespace]` in dependency injection config files of via `$container->get('liip_doctrine_cache.ns.[your_namespace]')` in your code.
 
 Custom cache types
 ==================
