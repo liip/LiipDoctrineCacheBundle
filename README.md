@@ -90,7 +90,7 @@ Simply configure any number of cache services:
 Usage
 =====
 
-Simply use `liip_doctrine_cache.ns.[your_namespace]` in dependency injection config files of via `$container->get('liip_doctrine_cache.ns.[your_namespace]')` in your code.
+Simply use `liip_doctrine_cache.ns.[your_name]` in dependency injection config files or using `$container->get('liip_doctrine_cache.ns.[your_name]')` in your code.
 
 Custom cache types
 ==================
