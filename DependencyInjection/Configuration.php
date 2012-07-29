@@ -38,11 +38,12 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('host')->defaultNull()->end()
                             ->scalarNode('port')->defaultNull()->end()
                             ->scalarNode('id')->defaultNull()->end()
+                            ->scalarNode('directory')->defaultNull()->end()
+                            ->scalarNode('extension')->defaultNull()->end()
                         ->end()
                     ->end()
                 ->end()
             ->end();
-        ;
 
         return $treeBuilder;
     }
