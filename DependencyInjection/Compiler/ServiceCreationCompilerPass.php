@@ -60,6 +60,12 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
 
                     $service->addMethodCall('setMemcached', array(new Reference($memcachedId)));
                     break;
+                case 'php_file':
+                    $directory = !empty($config['directory']) ? $config['directory'] : '%kernel.cache_dir%';
+                    $extension = !empty($config['extension']) ? $config['extension'] : null;
+
+                    $service->setArguments(array($directory, $extension));
+                    break;
             }
         }
     }
