@@ -18,6 +18,7 @@ class CacheFlushCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this->setName('liip:doctrine-cache:flush');
+        $this->setAliases(array('liip:doctrine-cache:clear'));
         $this->setDescription('Clean the given cache');
         $this->addArgument(
             'cache-name', InputArgument::REQUIRED, 'Which cache to clean?'
