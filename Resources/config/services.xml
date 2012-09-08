@@ -8,6 +8,7 @@
 
         <parameter key="liip_doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
         <parameter key="liip_doctrine_cache.array.class">Doctrine\Common\Cache\ArrayCache</parameter>
+        <parameter key="liip_doctrine_cache.file_system.class">Doctrine\Common\Cache\FileSystemCache</parameter>
         <parameter key="liip_doctrine_cache.memcache.class">Doctrine\Common\Cache\MemcacheCache</parameter>
         <parameter key="liip_doctrine_cache.memcache_host">localhost</parameter>
         <parameter key="liip_doctrine_cache.memcache_port">11211</parameter>
@@ -25,6 +26,7 @@
 
         <service id="liip_doctrine_cache.apc" class="%liip_doctrine_cache.apc.class%" abstract="true" />
         <service id="liip_doctrine_cache.array" class="%liip_doctrine_cache.array.class%" abstract="true" />
+        <service id="liip_doctrine_cache.file_system" class="%liip_doctrine_cache.file_system.class%" abstract="true" />
         <service id="liip_doctrine_cache.memcache" class="%liip_doctrine_cache.memcache.class%" abstract="true" />
         <service id="liip_doctrine_cache.memcached" class="%liip_doctrine_cache.memcached.class%" abstract="true" />
         <service id="liip_doctrine_cache.php_file" class="%liip_doctrine_cache.php_file.class%" abstract="true" />
