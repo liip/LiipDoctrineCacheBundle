@@ -62,7 +62,7 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
                     break;
                 case 'file_system':
                 case 'php_file':
-                    $directory = !empty($config['directory']) ? $config['directory'] : '%kernel.cache_dir%';
+                    $directory = !empty($config['directory']) ? $config['directory'] : '%kernel.cache_dir%/doctrine/cache';
                     $extension = !empty($config['extension']) ? $config['extension'] : null;
 
                     $service->setArguments(array($directory, $extension));
