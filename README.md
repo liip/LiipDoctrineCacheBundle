@@ -14,20 +14,21 @@ Installation
 $ git submodule add git://github.com/liip/LiipDoctrineCacheBundle.git vendor/bundles/Liip/DoctrineCacheBundle
 ```
 
-**Using the vendors script**
+**Using composer**
 
 Add the following lines in your `deps` file:
 
 ```
-[LiipDoctrineCacheBundle]
-    git=git://github.com/liip/LiipDoctrineCacheBundle.git
-    target=/bundles/Liip/DoctrineCacheBundle
+"require": {
+    ...
+    "liip/doctrine-cache-bundle": "dev-master"
+}
 ```
 
-Now, run the vendors script to download the bundle:
+Now, run composer to download the bundle:
 
 ```bash
-$ php bin/vendors install
+$ composer update
 ```
 
 ### 2. Add the Liip namespace to your autoloader:
@@ -72,8 +73,10 @@ Simply configure any number of cache services:
                 type: apc
             # name of the service (aka liip_doctrine_cache.ns.lala) and namespace
             lala:
-                # cache type is "apc"
-                type: apc
+                # cache type is "file_system"
+                type: file_system
+                # optionally define a directory
+                directory: /tmp/lala
             # name of the service (aka liip_doctrine_cache.ns.bar)
             bar:
                 # cache namespace is "dong"
