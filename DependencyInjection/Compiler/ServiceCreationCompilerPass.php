@@ -35,7 +35,7 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
                             $memcacheHost, $memcachePort
                         ));
                         $memcache->setPublic(false);
-                        $memcacheId = sprintf('liip_doctrine_cache.%s_memcache_instance', $namespace);
+                        $memcacheId = sprintf('liip_doctrine_cache.%s_memcache_instance', $name);
                         $container->setDefinition($memcacheId, $memcache);
                     } else {
                         $memcacheId = $config['id'];
@@ -52,7 +52,7 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
                             $memcachedHost, $memcachedPort
                         ));
                         $memcached->setPublic(false);
-                        $memcachedId = sprintf('liip_doctrine_cache.%s_memcached_instance', $namespace);
+                        $memcachedId = sprintf('liip_doctrine_cache.%s_memcached_instance', $name);
                         $container->setDefinition($memcachedId, $memcached);
                     } else {
                         $memcachedId = $config['id'];
