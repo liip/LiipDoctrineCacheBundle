@@ -90,10 +90,25 @@ Simply configure any number of cache services:
                 # host to use for memcache(d) (default is localhost)
                 host: localhost
 
+
 Usage
 =====
 
 Simply use `liip_doctrine_cache.ns.[your_name]` in dependency injection config files or using `$container->get('liip_doctrine_cache.ns.[your_name]')` in your code.
+
+Disabling a namespace
+=====================
+
+Sometimes it might be needed that a namespace be disabled for a specific environment. Consider that foo namespace that was configured,
+it is possible to disable it within the dev environment, for example:
+
+    # app/config_dev.yml
+    liip_doctirne_cache:
+        namespaces:
+            foo:
+                disabled: true
+
+This will skip the creation of the service.
 
 Custom cache types
 ==================

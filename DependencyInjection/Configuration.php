@@ -40,6 +40,7 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('id')->defaultNull()->end()
                             ->scalarNode('directory')->defaultNull()->end()
                             ->scalarNode('extension')->defaultNull()->end()
+                            ->booleanNode('disabled')->defaultFalse()->end()
                         ->end()
                     ->end()
                 ->end()
