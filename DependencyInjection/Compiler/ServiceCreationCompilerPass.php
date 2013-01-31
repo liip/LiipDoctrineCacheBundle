@@ -15,6 +15,9 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
         $namespaces = $container->getParameter('liip_doctrine_cache.namespaces');
 
         foreach ($namespaces as $name => $config) {
+            if( $config['disabled'] ) {
+                continue;
+            }
             $id = 'liip_doctrine_cache.'.$config['type'];
             if (!$container->hasDefinition($id)) {
                 throw new \InvalidArgumentException('Supplied cache type is not supported: '.$config['type']);
