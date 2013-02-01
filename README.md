@@ -100,3 +100,24 @@ Custom cache types
 
 Simply define a new type by defining a service named `liip_doctrine_cache.[type name]`.
 Note the service needs to implement ``Doctrine\Common\Cache\Cache`` interface.
+
+Development mode
+================
+
+In development mode you do not want to cache things over more than one request. An easy
+solution for this is to use the array cache in the dev environment.
+
+    #config.yml
+    liip_doctrine_cache:
+        namespaces:
+            presta_sitemap:
+                type: file_system
+
+    # config_dev.yml
+    liip_doctrine_cache:
+        namespaces:
+            presta_sitemap:
+                type: array
+
+The array cache will be lost after each request, so effectively only cache if you access
+the same data within one single request.
