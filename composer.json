@@ -20,5 +20,10 @@
             "Liip\\DoctrineCacheBundle\\": ""
         }
     },
-    "target-dir" : "Liip/DoctrineCacheBundle"
+    "target-dir" : "Liip/DoctrineCacheBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
