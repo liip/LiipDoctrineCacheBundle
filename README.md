@@ -6,17 +6,7 @@ This Bundle provides integration into Symfony2 with the Doctrine Common Cache la
 Installation
 ============
 
-### 1. Add this bundle to your project:
-
-**Using submodules**
-
-```bash
-$ git submodule add git://github.com/liip/LiipDoctrineCacheBundle.git vendor/bundles/Liip/DoctrineCacheBundle
-```
-
-**Using composer**
-
-Add the following lines in your `deps` file:
+### 1. Add the bundle to your composer.json
 
 ```
 "require": {
@@ -25,21 +15,10 @@ Add the following lines in your `deps` file:
 }
 ```
 
-Now, run composer to download the bundle:
+### 2. Install the bundle using composer
 
 ```bash
-$ composer update
-```
-
-### 2. Add the Liip namespace to your autoloader:
-
-```php
-<?php
-// app/autoload.php
-$loader->registerNamespaces(array(
-    'Liip' => __DIR__.'/../vendor/bundles',
-    // your other namespaces
-));
+$ php composer.phar update liip/doctrine-cache-bundle
 ```
 
 ### 3. Add this bundle to your application's kernel:
