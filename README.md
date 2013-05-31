@@ -69,6 +69,9 @@ Simply configure any number of cache services:
                 # host to use for memcache(d) (default is localhost)
                 host: localhost
 
+Default values for the services are defined in the compiler pass:
+https://github.com/liip/LiipDoctrineCacheBundle/blob/master/DependencyInjection/Compiler/ServiceCreationCompilerPass.php
+
 Usage
 =====
 
