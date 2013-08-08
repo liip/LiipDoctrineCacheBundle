@@ -61,6 +61,24 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
 
                     $service->addMethodCall('setMemcached', array(new Reference($memcachedId)));
                     break;
+                case 'redis':
+                    if (empty($config['id'])) {
+                        $redisHost = !empty($config['host']) ? $config['host'] : '%liip_doctrine_cache.redis_host%';
+                        $redisPort = !empty($config['port']) ? $config['port'] : '%liip_doctrine_cache.redis_port%';
+                        $redisTimeout = !empty($config['timeout']) ? $config['timeout'] : '%liip_doctrine_cache.redis_timeout%';
+                        $redis = new Definition('Redis');
+                        $redis->addMethodCall('connect', array(
+                            $redisHost, $redisPort, $redisTimeout
+                        ));
+                        $redis->setPublic(false);
+                        $redisId = sprintf('liip_doctrine_cache.%s_redis_instance', $name);
+                        $container->setDefinition($redisId, $redis);
+                    } else {
+                        $redisId = $config['id'];
+                    }
+
+                    $service->addMethodCall('setRedis', array(new Reference($redisId)));
+                    break;
                 case 'file_system':
                 case 'php_file':
                     $directory = !empty($config['directory']) ? $config['directory'] : '%kernel.cache_dir%/doctrine/cache';
