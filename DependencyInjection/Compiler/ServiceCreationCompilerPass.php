@@ -30,9 +30,10 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
                     if (empty($config['id'])) {
                         $memcacheHost = !empty($config['host']) ? $config['host'] : '%liip_doctrine_cache.memcache_host%';
                         $memcachePort = isset($config['port']) ? $config['port'] : '%liip_doctrine_cache.memcache_port%';
+                        $memcacheTimeout = !empty($config['timeout']) ? $config['timeout'] : '%liip_doctrine_cache.memcache_timeout%';
                         $memcache = new Definition('Memcache');
                         $memcache->addMethodCall('addServer', array(
-                            $memcacheHost, $memcachePort
+                            $memcacheHost, $memcachePort, $memcacheTimeout
                         ));
                         $memcache->setPublic(false);
                         $memcacheId = sprintf('liip_doctrine_cache.%s_memcache_instance', $name);

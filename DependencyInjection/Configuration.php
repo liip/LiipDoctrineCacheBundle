@@ -37,6 +37,7 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('type')->isRequired()->cannotBeEmpty()->end()
                             ->scalarNode('host')->defaultNull()->end()
                             ->scalarNode('port')->defaultNull()->end()
+                            ->scalarNode('timeout')->defaultNull()->end()
                             ->scalarNode('id')->defaultNull()->end()
                             ->scalarNode('directory')->defaultNull()->end()
                             ->scalarNode('extension')->defaultNull()->end()
