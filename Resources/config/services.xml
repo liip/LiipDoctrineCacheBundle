@@ -12,6 +12,7 @@
         <parameter key="liip_doctrine_cache.memcache.class">Doctrine\Common\Cache\MemcacheCache</parameter>
         <parameter key="liip_doctrine_cache.memcache_host">localhost</parameter>
         <parameter key="liip_doctrine_cache.memcache_port">11211</parameter>
+        <parameter key="liip_doctrine_cache.memcache_timeout">1</parameter>
         <parameter key="liip_doctrine_cache.memcached.class">Doctrine\Common\Cache\MemcachedCache</parameter>
         <parameter key="liip_doctrine_cache.memcached_host">localhost</parameter>
         <parameter key="liip_doctrine_cache.memcached_port">11211</parameter>
