@@ -50,12 +50,16 @@ Simply configure any number of cache services:
                 namespace: ding
                 # cache type is "apc"
                 type: apc
+                # alias names of the service (liip_doctrine_cache.ns.foo_bar and liip_doctrine_cache.ns.foo_baz)
+                alias: [foo_bar,foo_baz]
             # name of the service (aka liip_doctrine_cache.ns.lala) and namespace
             lala:
                 # cache type is "file_system"
                 type: file_system
                 # optionally define a directory
                 directory: /tmp/lala
+                # single alias name (equivalent to `alias: [lala_bar]`)
+                alias: lala_bar
             # name of the service (aka liip_doctrine_cache.ns.bar)
             bar:
                 # cache namespace is "dong"

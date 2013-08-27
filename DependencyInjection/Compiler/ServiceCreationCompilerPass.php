@@ -25,6 +25,10 @@ class ServiceCreationCompilerPass implements CompilerPassInterface
                 ->setDefinition('liip_doctrine_cache.ns.'.$name, new DefinitionDecorator($id))
                 ->addMethodCall('setNamespace', array($namespace));
 
+            foreach ($config['alias'] as $alias) {
+                $container->setAlias('liip_doctrine_cache.ns.'.$alias, 'liip_doctrine_cache.ns.'.$name);
+            }
+
             switch ($config['type']) {
                 case 'memcache':
                     if (empty($config['id'])) {
