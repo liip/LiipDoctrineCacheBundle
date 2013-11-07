@@ -11,7 +11,7 @@ Installation
 ```
 "require": {
     ...
-    "liip/doctrine-cache-bundle": "dev-master"
+    "liip/doctrine-cache-bundle": "~1.0"
 }
 ```
 
