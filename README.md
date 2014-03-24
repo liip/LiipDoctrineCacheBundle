@@ -1,7 +1,8 @@
 DoctrineCacheBundle
 ===================
 
-This Bundle provides integration into Symfony2 with the Doctrine Common Cache layer
+This Bundle provides integration into Symfony2 with the Doctrine Common Cache layer.
+It has been deprecated in favor of https://github.com/doctrine/DoctrineCacheBundle.
 
 Installation
 ============
